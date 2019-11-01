@@ -21,15 +21,15 @@ public class ClientController {
     private ClientRepository clientRepository;
 
     @GetMapping("/AllClients") // aqui pega todos os clients
-    public List<Client> getAllEmployees() {
+    public List<Client> getAllClient() {
         return clientRepository.findAll();
     }
 
     @GetMapping("/Client/{id}") // aqui pega o cliente pelo id
-    public ResponseEntity<Client> getEmployeeById(@PathVariable(value = "id") Long employeeId)
+    public ResponseEntity<Client> getClientById(@PathVariable(value = "id") Long clientid)
             throws ResourceNotFoundException {
-        Client client = clientRepository.findById(employeeId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
+        Client client = clientRepository.findById(clientid)
+                .orElseThrow(() -> new ResourceNotFoundException("Client not found for this id :: " + clientid));
         return ResponseEntity.ok().body(client);
     }
 
@@ -39,10 +39,10 @@ public class ClientController {
     }
 
     @PutMapping("/Client/{id}")//aqui realiza um update no cliente com o id
-    public ResponseEntity<Client> updateEmployee(@PathVariable(value = "id") Long employeeId,
+    public ResponseEntity<Client> updateClient(@PathVariable(value = "id") Long clientid,
                                                    @Valid @RequestBody Client clientDetails) throws ResourceNotFoundException {
-        Client client = clientRepository.findById(employeeId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
+        Client client = clientRepository.findById(clientid)
+                .orElseThrow(() -> new ResourceNotFoundException("Client not found for this id :: " + clientid));
 
         client.setCpf(clientDetails.getCpf());
         client.setName(clientDetails.getName());
@@ -51,11 +51,11 @@ public class ClientController {
         return ResponseEntity.ok(updatedEmployee);
     }
 
-    @DeleteMapping("/employees/{id}")
-    public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long employeeId)
+    @DeleteMapping("/client/{id}") // delete por  id  do client
+    public Map<String, Boolean> deleteClient(@PathVariable(value = "id") Long clientid)
             throws ResourceNotFoundException {
-        Client client = clientRepository.findById(employeeId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
+        Client client = clientRepository.findById(clientid)
+                .orElseThrow(() -> new ResourceNotFoundException("Client not found for this id :: " + clientid));
 
         clientRepository.delete(client);
         Map<String, Boolean> response = new HashMap<>();
