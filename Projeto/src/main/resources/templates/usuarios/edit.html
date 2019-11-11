@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Getting started: Serving Web Content</title>
+</head>
+<body>
+<form action="#" th:action="@{/usuarios/{id}(id = ${usuario.id})}" th:object="${usuario}" method="post">
+
+<label for="nome">Nome</label>
+<input type="text" th:field="*{nome}" id="nome" placeholder="Seu Nome">
+
+<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+
+<label for="nome">Sobrenome</label>
+<input type="text" th:field="*{sobrenome}" id="sobrenome" placeholder="Seu sobrenome">
+
+<span th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}"></span>
+   
+   <input type="submit" value="Adicionar Usuário">
+    </form>
+</body>
+</html>
