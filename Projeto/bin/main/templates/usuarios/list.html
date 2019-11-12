@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+	
+<title>Getting started: Serving Web Content</title>
+</head>
+<body>
+	<div>
+		<h1>Clientes</h1>
+
+
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Telefone</th>
+					<th>E-mail</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr th:each="usuario: ${usuarios}">
+					<td th:text="${usuario.nome}"></td>
+					<td th:text="${usuario.telefone}"></td>
+					<td th:text="${usuario.email}"></td>
+					<td th:text="${usuario.dataNasc}"></td>
+					<td><a th:href="@{/usuarios/{id}/edit(id = ${usuario.id})}">Editar</a></td>
+					<td><a th:href="@{/usuarios/{id}/delete(id = ${usuario.id})}">Deletar</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+	<p>
+		<a href="/usuarios/create">Adicionar Novo Cliente</a>
+	</p>
+</body>
+</html>
