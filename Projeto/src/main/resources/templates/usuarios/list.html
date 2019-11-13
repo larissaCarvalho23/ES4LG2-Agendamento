@@ -5,41 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-	
+
 <title>Getting started: Serving Web Content</title>
 </head>
 <body>
-	<div>
-		<h1>Clientes</h1>
-
-
-		<table>
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Telefone</th>
-					<th>E-mail</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-
-				<tr th:each="usuario: ${usuarios}">
-					<td th:text="${usuario.nome}"></td>
-					<td th:text="${usuario.telefone}"></td>
-					<td th:text="${usuario.email}"></td>
-					<td th:text="${usuario.dataNasc}"></td>
-					<td><a th:href="@{/usuarios/{id}/edit(id = ${usuario.id})}">Editar</a></td>
-					<td><a th:href="@{/usuarios/{id}/delete(id = ${usuario.id})}">Deletar</a></td>
-				</tr>
-
-			</tbody>
-		</table>
-	</div>
-
-	<p>
-		<a href="/usuarios/create">Adicionar Novo Cliente</a>
-	</p>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card text-center">
+          <div class="card-header bg-primary text-light">
+            <h1>Clientes</h1>
+          </div>
+          <div class="card-body">
+            <table class="table table-hover">
+              <thead class="thead thead-dark">
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Telefone</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Dt Nascimento</th>
+                  <th scope="col">Editar</th>
+                  <th scope="col">Deletar</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="usuario: ${usuarios}">
+                  <th scope="row" th:text="${usuario.id}"></th>
+                  <td th:text="${usuario.nome}"></td>
+                  <td th:text="${usuario.telefone}"></td>
+                  <td th:text="${usuario.email}"></td>
+                  <td th:text="${usuario.dataNasc}"></td>
+                  <td><a th:href="@{/usuarios/{id}/edit(id = ${usuario.id})}">
+                      <-</i> </a> </td> <td><a th:href="@{/usuarios/{id}/delete(id = ${usuario.id})}">X</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer text-muted bg-primary">
+            <a class="btn btn-outline-light" href="/usuarios/create">Adicionar Novo Cliente</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

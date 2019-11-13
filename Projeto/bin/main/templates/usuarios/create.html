@@ -2,23 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title>Getting started: Serving Web Content</title>
     
-    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     
     <style>
-    .bg-gradient-primary {
-  background-color: #4e73df;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #4e73df), to(#224abe));
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
-  background-size: cover;
-}
 
 .bg-register-image {
-  background: url("../../imagens/img_cadastro.jpg");
+  background: url("/imagens/img_cadastro.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -26,7 +20,7 @@
     
     </style>
 </head>
-<body class="bg-gradient-primary">
+<body class="bg-light">
     <div class="container">
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
@@ -94,5 +88,11 @@
       </div>
     </div>
   </div>
+  
+  <script src="/js/jquery-3.4.1.js"></script>
+  
+    <script src="/jsPaginas/create.js"></script>
+  
+  
 </body>
 </html>

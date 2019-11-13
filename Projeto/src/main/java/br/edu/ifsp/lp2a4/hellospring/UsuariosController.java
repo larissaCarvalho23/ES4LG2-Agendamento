@@ -30,6 +30,14 @@ public class UsuariosController {
 		return "usuarios/list";
 
 	}
+	
+	@GetMapping("/login")
+	public String logar(Model model) {
+
+		return "usuarios/login";
+
+	}
+
 
 	@GetMapping("/usuarios/create")
 
