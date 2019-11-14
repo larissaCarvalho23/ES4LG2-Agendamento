@@ -26,7 +26,7 @@ public class Usuario {
 	@NotBlank(message = "O nome é obrigatório!")
 	private String nome;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNasc;	
 	
 	private String sexo;
