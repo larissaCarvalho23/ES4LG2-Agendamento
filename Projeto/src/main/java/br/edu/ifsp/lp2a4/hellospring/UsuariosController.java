@@ -64,13 +64,14 @@ public class UsuariosController {
 	}
 
 	@GetMapping("/usuarios/{id}/edit")
-	public String edit(@PathVariable long id, Model model) {
-
-		Usuario usuario = repository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado!"));
-
-		model.addAttribute("usuario", usuario);
-
+	public String edit (@PathVariable long id,Model model) {
+		
+		Usuario usuario = repository
+				.findById(id)
+				.orElseThrow(()->new ResourceNotFoundException("Usuario não encontrado"));
+		
+		model.addAttribute("usuario",usuario);
+		
 		return "usuarios/edit";
 	}
 

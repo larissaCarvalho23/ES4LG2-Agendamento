@@ -1,7 +1,4 @@
 /application.properties
-/css/
-/br/
-/imagens/
-/js/
-/templates/
 /static/
+/br/
+/templates/

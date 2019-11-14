@@ -39,8 +39,8 @@
                   <td th:text="${usuario.telefone}"></td>
                   <td th:text="${usuario.email}"></td>
                   <td th:text="${usuario.dataNasc}"></td>
-                  <td><a th:href="@{/usuarios/{id}/edit(id = ${usuario.id})}">
-                      <-</i> </a> </td> <td><a th:href="@{/usuarios/{id}/delete(id = ${usuario.id})}">X</a></td>
+                  <td><a th:href="@{/usuarios/{id}/edit(id=${usuario.id})}">Editar</a></td>
+                      <td><a th:href="@{/usuarios/{id}/delete(id = ${usuario.id})}">X</a></td>
                 </tr>
               </tbody>
             </table>

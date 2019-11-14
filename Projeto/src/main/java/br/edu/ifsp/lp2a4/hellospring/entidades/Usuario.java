@@ -1,5 +1,6 @@
 package br.edu.ifsp.lp2a4.hellospring.entidades;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -23,7 +26,7 @@ public class Usuario {
 	@NotBlank(message = "O nome é obrigatório!")
 	private String nome;
 	
-	@DateTimeFormat (pattern="dd-MM-YYYY")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataNasc;	
 	
 	private String sexo;
@@ -53,8 +56,10 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public Date getDataNasc() {
-		return this.dataNasc;
+	public String getDataNasc() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
+		String strDate = dateFormat.format(this.dataNasc);   
+		return strDate;
 	}
 
 
