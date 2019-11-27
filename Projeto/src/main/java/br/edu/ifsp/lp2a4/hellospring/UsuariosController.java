@@ -37,6 +37,13 @@ public class UsuariosController {
 		return "usuarios/login";
 
 	}
+	
+	@GetMapping("/index")
+	public String Home(Model model) {
+
+		return "usuarios/index";
+
+	}
 
 
 	@GetMapping("/usuarios/create")
