@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -11,11 +10,19 @@
   <link href="/css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
   <link href="/css/bootstrap.css" rel="stylesheet">
   <link href="/css/index.css" rel="stylesheet">
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/fontawesome/css/all.css" >
+
+<style>
+
+.bg-register-image {
+  background: url("/imagens/img_cadastro.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+    
+    </style>
 </head>
 
 <body id="page-top">
@@ -283,44 +290,80 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
         <div class="row">
-        <div class="col-12">
-        
-        <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-danger">Clientes</h6>
-                </div>
-                <div class="card-body">
-                  <table class="table table-hover">
-              <thead class="thead thead-dark">
-                <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Telefone</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Dt Nascimento</th>
-                  <th scope="col">Editar</th>
-                  <th scope="col">Deletar</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr th:each="usuario: ${usuarios}">
-                  <th scope="row" th:text="${usuario.id}"></th>
-                  <td th:text="${usuario.nome}"></td>
-                  <td th:text="${usuario.telefone}"></td>
-                  <td th:text="${usuario.email}"></td>
-                  <td th:text="${usuario.dataNasc}"></td>
-                  <td><a th:href="@{/usuarios/{id}/edit(id = ${usuario.id})}"><i class="fas fa-pen text-danger"></i></a> </td> 
-                  <td><a th:href="@{/usuarios/{id}/delete(id = ${usuario.id})}"><i class="fas fa-trash text-danger"></i></a></td>
-                </tr>
-              </tbody>
-            </table>
-                </div>
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Mude sua vida hoje mesmo!</h1>
               </div>
+              <form action="#" id="formCadUso" th:action="@{/usuarios}" th:object="${usuario}" method="post" class="user">
+              <div class="form-group">
+                  <input type="text"  th:field="*{nome}" class="form-control form-control-user" id="nome" placeholder="Seu Nome">
+                  <div class="invalid-feedback">Nome Vazio</div>
+                  <div class="valid-feedback">;D</div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" th:field="*{sexo}" class="form-control form-control-user" id="sexo" placeholder="Sexo">
+                    <div class="invalid-feedback">Sexo Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="date" th:field="*{dataNasc}" class="form-control form-control-user" id="dataNasc" placeholder="Insira a Data de Nascimento">
+                    <div class="invalid-feedback">Data Nascimento Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" th:field="*{email}" class="form-control form-control-user" id="email" placeholder="Digite o E-mail">
+                  <div class="invalid-feedback">Email Vazio</div>
+                  <div class="valid-feedback">;D</div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" th:field="*{cep}" class="form-control form-control-user" id="cep" placeholder="CEP">
+                    <div class="invalid-feedback">Cep Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" th:field="*{cidade}" class="form-control form-control-user" id="cidade" placeholder="Cidade">
+                    <div class="invalid-feedback">Cidade Vazia</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" th:field="*{logradouro}" class="form-control form-control-user" id="logradouro" placeholder="Logradouro">
+                    <div class="invalid-feedback">Logradouro Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" th:field="*{numeroend}" class="form-control form-control-user" id="numeroend" placeholder="Número">
+                    <div class="invalid-feedback">Número Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" th:field="*{uf}" class="form-control form-control-user" id="uf" placeholder="Estado">
+                    <div class="invalid-feedback">UF Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" th:field="*{telefone}" class="form-control form-control-user" id="telefone" placeholder="Digite o Telefone">
+                    <div class="invalid-feedback">Telefone Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                </div>
+                <input type="button" class="btn btn-danger btn-user btn-block" id="btnSalvar" value="Adicionar Cliente">
+              </form>
+            </div>
+          </div>
         </div>
-        <!-- Illustrations -->
-              
+      </div>
     </div>
           
         </div>
@@ -371,18 +414,9 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="/js/jquery-3.4.1.js"></script>
+  <script src="/jsPaginas/create.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.ifsp.lp2a4.hellospring.entidades.Usuario;
 import br.edu.ifsp.lp2a4.hellospring.entidades.UsuariosRepository;
-//teste
 
 @Controller
 public class UsuariosController {
@@ -35,7 +34,7 @@ public class UsuariosController {
 	@GetMapping("/login")
 	public String logar(Model model) {
 
-		return "usuarios/login";
+		return "login";
 
 	}
 	
@@ -72,14 +71,13 @@ public class UsuariosController {
 	}
 
 	@GetMapping("/usuarios/{id}/edit")
-	public String edit (@PathVariable long id,Model model) {
-		
-		Usuario usuario = repository
-				.findById(id)
-				.orElseThrow(()->new ResourceNotFoundException("Usuario nï¿½o encontrado"));
-		
-		model.addAttribute("usuario",usuario);
-		
+	public String edit(@PathVariable long id, Model model) {
+
+		Usuario usuario = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado!"));
+
+		model.addAttribute("usuario", usuario);
+
 		return "usuarios/edit";
 	}
 
@@ -101,7 +99,7 @@ public class UsuariosController {
 	public String delete(@PathVariable long id, Model model) {
 
 		Usuario usuario = repository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Usuï¿½rio nï¿½o encontrado!"));
+				.orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado!"));
 
 		repository.delete(usuario);
 

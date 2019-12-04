@@ -24,7 +24,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
@@ -32,7 +32,7 @@
           <i class="fas fa-laugh-wink"></i>
         </div> -->
         <img src="/imagens/gnd-logo-300px.png" width="30%">
-        <div class="sidebar-brand-text mx-3">Portal GND</div>
+        <div class="sidebar-brand-text mx-3">ADMIN PANEL</div>
       </a>
 
       <!-- Divider -->
@@ -40,7 +40,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="/index">
+        <a class="nav-link" href="/admin">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Início</span></a>
       </li>
@@ -57,35 +57,23 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Cadastros</span>
+          <span>Configurações</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Cadastros Básicos:</h6>
-            <a class="collapse-item" href="/usuarios/create">Autônomos</a>
-            <a class="collapse-item" href="#">Usuários</a>
+            <a class="collapse-item" href="/admin/createCliente">Autônomos</a>
+            <a class="collapse-item" href="/admin/createUsuario">Usuários</a>
           </div>
         </div>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Agenda</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Ações:</h6>
-            <a class="collapse-item" href="/usuarios">Lista de Clientes</a>
-            <a class="collapse-item" href="#">Balanço Mensal</a>
-            <a class="collapse-item" href="#">Novo Serviço</a>
-            <a class="collapse-item" href="#">Meus atendimentos</a>
-            <a class="collapse-item" href="#">Meus Clientes</a>
+            <h6 class="collapse-header">Alterações de Permissões</h6>
+            <a class="collapse-item" href="/admin/listCliente">Autônomos</a>
+            <a class="collapse-item" href="/admin/listUsuario">Usuários</a>
           </div>
         </div>
       </li>
-
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -146,7 +134,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
+                <span class="badge badge-success badge-counter">3+</span>
               </a>
               <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
@@ -195,7 +183,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <span class="badge badge-success badge-counter">7</span>
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
@@ -288,7 +276,7 @@
         
         <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-danger">Clientes</h6>
+                  <h6 class="m-0 font-weight-bold text-success">Clientes</h6>
                 </div>
                 <div class="card-body">
                   <table class="table table-hover">
@@ -305,14 +293,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr th:each="usuario: ${usuarios}">
-                  <th scope="row" th:text="${usuario.id}"></th>
-                  <td th:text="${usuario.nome}"></td>
-                  <td th:text="${usuario.telefone}"></td>
-                  <td th:text="${usuario.email}"></td>
-                  <td th:text="${usuario.dataNasc}"></td>
-                  <td><a th:href="@{/usuarios/{id}/edit(id = ${usuario.id})}"><i class="fas fa-pen text-danger"></i></a> </td> 
-                  <td><a th:href="@{/usuarios/{id}/delete(id = ${usuario.id})}"><i class="fas fa-trash text-danger"></i></a></td>
+                <tr th:each="cliente ${cliente}">
+                  <th scope="row" th:text="${cliente.id}"></th>
+                  <td th:text="${cliente.nome}"></td>
+                  <td th:text="${cliente.telefone}"></td>
+                  <td th:text="${cliente.email}"></td>
+                  <td th:text="${cliente.dataNasc}"></td>
+                  <td><a th:href="@{/cliente/{id}/edit(id = ${cliente.id})}"><i class="fas fa-pen text-success"></i></a> </td> 
+                  <td><a th:href="@{/cliente/{id}/delete(id = ${cliente.id})}"><i class="fas fa-trash text-success"></i></a></td>
                 </tr>
               </tbody>
             </table>
