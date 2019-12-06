@@ -276,34 +276,75 @@
         
         <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-success">Clientes</h6>
+                  <h6 class="m-0 font-weight-bold text-success">Editar Cliente</h6>
                 </div>
                 <div class="card-body">
-                  <table class="table table-hover">
-              <thead class="thead thead-dark">
-                <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Telefone</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Dt Nascimento</th>
-                  <th scope="col">Editar</th>
-                  <th scope="col">Deletar</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr th:each="cliente: ${cliente}">
-                  <th scope="row" th:text="${cliente.id}"></th>
-                  <td th:text="${cliente.nome}"></td>
-                  <td th:text="${cliente.telefone}"></td>
-                  <td th:text="${cliente.email}"></td>
-                  <td th:text="${cliente.dataNasc}"></td>
-                  <td><a th:href="@{/admin/{id}/editCliente(id = ${cliente.id})}"><i class="fas fa-pen text-success"></i></a> </td> 
-                  <td><a th:href="@{/admin/{id}/delete(id = ${cliente.id})}"><i class="fas fa-trash text-success"></i></a></td>
-                </tr>
-              </tbody>
-            </table>
+                  
+                  <form id="formCadUso" action="#" th:action="@{/admin/{id}(id = ${cliente.id})}" th:object="${cliente}" method="post">
+              <div class="form-group">
+                  <input type="text"  th:field="*{nome}" class="form-control form-control-user" id="nome" placeholder="Seu Nome">
+                  <div class="invalid-feedback">Nome Vazio</div>
+                  <div class="valid-feedback">;D</div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" th:field="*{sexo}" class="form-control form-control-user" id="sexo" placeholder="Sexo">
+                    <div class="invalid-feedback">Sexo Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="date" th:field="*{dataNasc}" class="form-control form-control-user" id="dataNasc" placeholder="Insira a Data de Nascimento">
+                    <div class="invalid-feedback">Data Nascimento Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" th:field="*{email}" class="form-control form-control-user" id="email" placeholder="Digite o E-mail">
+                  <div class="invalid-feedback">Email Vazio</div>
+                  <div class="valid-feedback">;D</div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" th:field="*{cep}" class="form-control form-control-user" id="cep" placeholder="CEP">
+                    <div class="invalid-feedback">Cep Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" th:field="*{cidade}" class="form-control form-control-user" id="cidade" placeholder="Cidade">
+                    <div class="invalid-feedback">Cidade Vazia</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" th:field="*{logradouro}" class="form-control form-control-user" id="logradouro" placeholder="Logradouro">
+                    <div class="invalid-feedback">Logradouro Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                  
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" th:field="*{numeroend}" class="form-control form-control-user" id="numeroend" placeholder="Número">
+                    <div class="invalid-feedback">Número Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" th:field="*{uf}" class="form-control form-control-user" id="uf" placeholder="Estado">
+                    <div class="invalid-feedback">UF Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                  
+                  <div class="col-sm-6">
+                    <input type="text" th:field="*{telefone}" class="form-control form-control-user" id="telefone" placeholder="Digite o Telefone">
+                    <div class="invalid-feedback">Telefone Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                </div>
+                
+                <input type="button" class="btn btn-danger btn-user btn-block" id="btnSalvar" value="Salvar">
+              </form>
+                  
                 </div>
               </div>
         </div>
@@ -359,6 +400,7 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="/js/jquery-3.4.1.js"></script>
+  <script src="/jsPaginas/editCliente.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
 
 </body>
