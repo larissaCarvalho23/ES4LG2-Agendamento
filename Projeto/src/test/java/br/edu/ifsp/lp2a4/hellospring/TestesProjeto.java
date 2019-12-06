@@ -44,6 +44,19 @@ public class TestesProjeto {
     }
 
     @Test
+    public void testCreateUsuario() throws ParseException {
+        usuario.setNome("MATEUS SANTOS");
+        usuario.setDataNasc("21/08/1998");
+        usuario.setEmail("mateus@hotmail.com");
+        usuario.setSexo("M");
+        usuario.setTelefone("11980797658");
+        ResponseEntity<Usuario> postResponse = restTemplate.postForEntity(getRootUrl() + "/usuarios/create", usuario, Usuario.class );
+        assertNotNull(postResponse);
+        assertNotNull(postResponse.getBody());
+    }
+
+
+    @Test
     public void testDeleteUsuario() {
         int id = 2;
         Usuario usuario = restTemplate.getForObject(getRootUrl() + "/usuarios/" + id, Usuario.class);
