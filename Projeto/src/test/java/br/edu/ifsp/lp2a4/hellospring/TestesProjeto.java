@@ -1,0 +1,55 @@
+package br.edu.ifsp.lp2a4.hellospring;
+
+import br.edu.ifsp.lp2a4.hellospring.entidades.Usuario;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.text.ParseException;
+
+import static junit.framework.TestCase.assertNotNull;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = HellospringApplication.class , webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class TestesProjeto {
+    @LocalServerPort
+    private int port;
+
+    @Autowired
+    private TestRestTemplate restTemplate;
+
+    @Autowired
+    private Usuario usuario;
+
+    private String getRootUrl() {
+        return "http://localhost:" + port;
+    }
+
+    @Test
+    public void test_Get_All_Usuarios() {
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+        ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/usuarios",
+                HttpMethod.GET, entity, String.class);
+        assertNotNull(response.getBody());
+    }
+
+    @Test
+    public void test_Get_usuarios_By_Id() {
+        Integer id= 1;
+        Usuario usuario = restTemplate.getForObject(getRootUrl() + "/usuarios/"+ id, Usuario.class);
+        System.out.println(usuario.getNome());
+        System.out.println(usuario.getEmail());
+        assertNotNull(usuario);
+    }
+
+}
