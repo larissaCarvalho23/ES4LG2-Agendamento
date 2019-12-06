@@ -305,14 +305,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr th:each="usuario: ${usuarios}">
-                  <th scope="row" th:text="${usuario.id}"></th>
-                  <td th:text="${usuario.nome}"></td>
-                  <td th:text="${usuario.telefone}"></td>
-                  <td th:text="${usuario.email}"></td>
-                  <td th:text="${usuario.dataNasc}"></td>
-                  <td><a th:href="@{/usuarios/{id}/edit(id = ${usuario.id})}"><i class="fas fa-pen text-danger"></i></a> </td> 
-                  <td><a th:href="@{/usuarios/{id}/delete(id = ${usuario.id})}"><i class="fas fa-trash text-danger"></i></a></td>
+                <tr th:each="cliente: ${cliente}">
+                  <th scope="row" th:text="${cliente.id}"></th>
+                  <td th:text="${cliente.nome}"></td>
+                  <td th:text="${cliente.telefone}"></td>
+                  <td th:text="${cliente.email}"></td>
+                  <td th:text="${cliente.dataNasc}"></td>
+                  <td><a th:href="@{/clientes/{id}/edit(id = ${cliente.id})}"><i class="fas fa-pen text-danger"></i></a> </td> 
+                  <td><a th:href="@{/clientes/{id}/delete(id = ${cliente.id})}"><i class="fas fa-trash text-danger"></i></a></td>
                 </tr>
               </tbody>
             </table>

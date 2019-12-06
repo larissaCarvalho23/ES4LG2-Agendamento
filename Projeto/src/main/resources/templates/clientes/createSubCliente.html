@@ -299,7 +299,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Mude sua vida hoje mesmo!</h1>
               </div>
-              <!-- <form action="#" id="formCadUso" th:action="@{/clientes/create}" th:object="${usuario}" method="post" class="user">
+               <form action="#" id="formCadUso" th:action="@{/clientes/createSubCliente}" th:object="${subClienteView}" method="post" class="user">
               <div class="form-group">
                   <input type="text" th:field="*{nome}" class="form-control form-control-user" id="nome" placeholder="Seu Nome">
                   <div class="invalid-feedback">Nome Vazio</div>
@@ -309,6 +309,11 @@
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" th:field="*{sexo}" class="form-control form-control-user" id="sexo" placeholder="Sexo">
                     <div class="invalid-feedback">Sexo Vazio</div>
+                  	<div class="valid-feedback">;D</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="date" th:field="*{dataNasc}" class="form-control form-control-user" id="dataNasc" placeholder="Insira a Data de Nascimento">
+                    <div class="invalid-feedback">Data Nascimento Vazio</div>
                   	<div class="valid-feedback">;D</div>
                   </div>
                 </div>
@@ -354,7 +359,7 @@
                   </div>
                 </div>
                 <input type="button" class="btn btn-danger btn-user btn-block" id="btnSalvar" value="Adicionar Cliente">
-              </form> -->
+              </form> 
             </div>
           </div>
         </div>
@@ -409,7 +414,7 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="/js/jquery-3.4.1.js"></script>
-  <script src="/jsPaginas/create.js"></script>
+  <script src="/jsPaginas/createCliente.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
 
 </body>

@@ -1,52 +1,31 @@
 package br.edu.ifsp.lp2a4.hellospring.entidades;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 //Esta classe está emulando um repositório de dados no modelo ActiveRecord
 
 @Entity
-public class SubCliente {
+public class SubClienteView {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	@NotBlank(message = "O nome é obrigatório!")
 	private String nome;
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date dataNasc;	
+	private String dataNasc;	
 	
 	private String sexo;
-	@NotBlank(message = "O telefone é obrigatório!")
 	private String telefone;
-	@NotBlank(message = "O e-mail é obrigatório!")
 	private String email;
 	private String logradouro;
 	private String numeroend;
 	private String cep;
 	private String cidade;
 	private String uf;
-
-	public long getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;
@@ -56,13 +35,13 @@ public class SubCliente {
 		this.nome = nome;
 	}
 
-	public Date getDataNasc() {
+	public String getDataNasc() {
 		return dataNasc;
 	}
 
 
 
-	public void setDataNasc(Date dataNasc) {
+	public void setDataNasc(String dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 
@@ -130,8 +109,7 @@ public class SubCliente {
 		this.uf = uf;
 	}
 
-	public SubCliente() {
+	public SubClienteView() {
 
 	}
-
 }

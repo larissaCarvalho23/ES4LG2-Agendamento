@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 //faz uso do sping jpa
 
 @Repository
-public interface SubClienteRepository extends CrudRepository<SubCliente, Long>{	
+public interface SubClientesRepository extends CrudRepository<SubCliente, Long>{
 
 }
