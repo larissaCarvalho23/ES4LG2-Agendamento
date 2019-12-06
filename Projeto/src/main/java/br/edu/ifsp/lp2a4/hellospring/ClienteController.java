@@ -99,8 +99,6 @@ public class ClienteController {
 				.findById(id)
 				.orElseThrow(()->new ResourceNotFoundException("Cliente não encontrado"));
 		
-		System.out.println("************get**************");
-		
 		SubClienteView cli = new SubClienteView(); 
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");		
@@ -127,8 +125,6 @@ public class ClienteController {
 	@PostMapping("/clientes/{id}")
 	public String edit(@PathVariable long id, @Valid SubClienteView cliente, BindingResult result, Model model)  throws ParseException {
 
-		
-		System.out.println("************post**************");
 		if(result.hasErrors())
 			return "clientes/edit";
 		
@@ -138,6 +134,7 @@ public class ClienteController {
 		
 		SubCliente cli = new SubCliente();
 		
+		cli.setId((int)id);
 		cli.setNome(cliente.getNome());
 		cli.setSexo(cliente.getSexo());
 		cli.setCep(cliente.getCep());
