@@ -15,7 +15,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-//Esta classe está emulando um repositório de dados no modelo ActiveRecord
+//Esta classe estï¿½ emulando um repositï¿½rio de dados no modelo ActiveRecord
 
 @Entity
 public class Cliente {
@@ -23,16 +23,16 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@NotBlank(message = "O nome é obrigatório!")
+	@NotBlank(message = "O nome ï¿½ obrigatï¿½rio!")
 	private String nome;
 	
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNasc;	
 	
 	private String sexo;
-	@NotBlank(message = "O telefone é obrigatório!")
+	@NotBlank(message = "O telefone ï¿½ obrigatï¿½rio!")
 	private String telefone;
-	@NotBlank(message = "O e-mail é obrigatório!")
+	@NotBlank(message = "O e-mail ï¿½ obrigatï¿½rio!")
 	private String email;
 	private String logradouro;
 	private String numeroend;

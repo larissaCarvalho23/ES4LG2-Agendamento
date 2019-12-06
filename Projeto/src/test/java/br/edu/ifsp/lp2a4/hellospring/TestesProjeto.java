@@ -44,12 +44,14 @@ public class TestesProjeto {
     }
 
     @Test
-    public void test_Get_usuarios_By_Id() {
-        Integer id= 1;
-        Usuario usuario = restTemplate.getForObject(getRootUrl() + "/usuarios/"+ id, Usuario.class);
-        System.out.println(usuario.getNome());
-        System.out.println(usuario.getEmail());
+    public void testDeleteUsuario() {
+        int id = 2;
+        Usuario usuario = restTemplate.getForObject(getRootUrl() + "/usuarios/" + id, Usuario.class);
         assertNotNull(usuario);
+        restTemplate.delete(getRootUrl() + "/usuarios/" + id);
+        try {
+            usuario = restTemplate.getForObject(getRootUrl() + "/usuarios/" + id, Usuario.class);
+        } catch (final Error e) {
+        }
     }
-
 }
