@@ -14,6 +14,8 @@ public class SubClienteView {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	
+	private long id;
 	private String nome;
 	
 	private String dataNasc;	
@@ -26,6 +28,14 @@ public class SubClienteView {
 	private String cep;
 	private String cidade;
 	private String uf;
+
+	public long getId() {
+		return this.id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;

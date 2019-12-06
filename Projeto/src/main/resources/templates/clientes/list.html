@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -11,11 +10,19 @@
   <link href="/css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
   <link href="/css/bootstrap.css" rel="stylesheet">
   <link href="/css/index.css" rel="stylesheet">
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/fontawesome/css/all.css" >
+
+<style>
+
+.bg-register-image {
+  background: url("/imagens/img_cadastro.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+    
+    </style>
 </head>
 
 <body id="page-top">
@@ -24,15 +31,15 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/clientes">
         <!-- <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div> -->
         <img src="/imagens/gnd-logo-300px.png" width="30%">
-        <div class="sidebar-brand-text mx-3">Portal GND</div>
+        <div class="sidebar-brand-text mx-3">Cliente GND</div>
       </a>
 
       <!-- Divider -->
@@ -40,7 +47,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="/index">
+        <a class="nav-link" href="/clientes">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Início</span></a>
       </li>
@@ -52,36 +59,21 @@
       <div class="sidebar-heading">
         Ajustes
       </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Cadastros</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Cadastros Básicos:</h6>
-            <a class="collapse-item" href="/usuarios/create">Autônomos</a>
-            <a class="collapse-item" href="#">Usuários</a>
-          </div>
-        </div>
-      </li>
-
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
+          <i class="fas fa-fw fa-calendar"></i>
           <span>Agenda</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Ações:</h6>
-            <a class="collapse-item" href="/usuarios">Lista de Clientes</a>
+            <a class="collapse-item" href="/clientes/listSubCliente">Lista de Clientes</a>
             <a class="collapse-item" href="#">Balanço Mensal</a>
             <a class="collapse-item" href="#">Novo Serviço</a>
             <a class="collapse-item" href="#">Meus atendimentos</a>
             <a class="collapse-item" href="#">Meus Clientes</a>
+            <a class="collapse-item" href="/clientes/createSubCliente">Novo Cliente</a>
           </div>
         </div>
       </li>
@@ -280,7 +272,7 @@
 
         </nav>
         <!-- End of Topbar -->
-
+        
         <!-- Begin Page Content -->
         <div class="container-fluid">
         <div class="row">
@@ -371,18 +363,9 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="/js/jquery-3.4.1.js"></script>
+  <script src="/jsPaginas/createCliente.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
