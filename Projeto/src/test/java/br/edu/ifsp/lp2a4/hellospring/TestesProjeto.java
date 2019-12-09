@@ -3,7 +3,6 @@ package br.edu.ifsp.lp2a4.hellospring;
 import br.edu.ifsp.lp2a4.hellospring.entidades.Usuario;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -66,5 +65,11 @@ public class TestesProjeto {
             usuario = restTemplate.getForObject(getRootUrl() + "/usuarios/" + id, Usuario.class);
         } catch (final Error e) {
         }
+    }
+    @Test
+    public void testLogin() {
+    	String login = "fabriciots99@gmail.com";
+    	String senha = "123";
+    	
     }
 }

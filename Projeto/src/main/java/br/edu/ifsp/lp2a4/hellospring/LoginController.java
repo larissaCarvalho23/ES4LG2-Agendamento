@@ -45,6 +45,8 @@ public class LoginController {
 //		}
 		try {
 			if (login.compareTo(usuario.getEmail())==0 && password.compareTo(usuario.getPassword())==0) {
+				String sucesso = "Login efetuado";
+				model.addAttribute("Sucesso", sucesso);
 				if (usuario.isAdmin()) {
 					return "redirect:/admin";
 				}
