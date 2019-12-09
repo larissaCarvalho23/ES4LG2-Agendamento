@@ -31,13 +31,6 @@ public class UsuariosController {
 
 	}
 	
-	@GetMapping("/login")
-	public String logar(Model model) {
-
-		return "login";
-
-	}
-	
 	@GetMapping("/index")
 	public String Home(Model model) {
 

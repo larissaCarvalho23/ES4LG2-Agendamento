@@ -1,4 +1,5 @@
 /application.properties
-/static/
 /br/
+/static/
 /templates/
+/data.sql
