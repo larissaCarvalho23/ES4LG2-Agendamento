@@ -31,7 +31,7 @@ public class ClienteController {
 	@GetMapping("/clientes")
 	public String index(HttpSession session) {
 		if(session.getAttribute("login")!=null) {
-			if(session.getAttribute("isAdmin")==null) {
+			if(session.getAttribute("isAdmin").equals(false)) {
 				return "clientes/indexCliente";
 			}
 			else {

@@ -30,7 +30,7 @@ public class AdminController {
 	@GetMapping("/admin")
 	public String index(HttpSession session) {
 		if(session.getAttribute("login")!=null) {
-			if(session.getAttribute("isAdmin")!=null) {
+			if(session.getAttribute("isAdmin").equals(true)){
 				return "admin/indexAdmin";
 			}
 			else {
