@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -28,10 +29,16 @@ public class ClienteController {
 	}
 
 	@GetMapping("/clientes")
-	public String index(Model model) {
-
-
-		return "clientes/indexCliente";
+	public String index(HttpSession session) {
+		if(session.getAttribute("login")!=null) {
+			if(session.getAttribute("isAdmin")==null) {
+				return "clientes/indexCliente";
+			}
+			else {
+				return "NotFound";
+			}
+		}
+		return "redirect:/login";
 
 	}
 	

@@ -12,9 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import javax.servlet.http.HttpSession;
 import br.edu.ifsp.lp2a4.hellospring.entidades.ClientesRepository;
-import br.edu.ifsp.lp2a4.hellospring.entidades.Usuario;
 import br.edu.ifsp.lp2a4.hellospring.entidades.ClienteView;
 import br.edu.ifsp.lp2a4.hellospring.entidades.Cliente;
 
@@ -29,11 +28,16 @@ public class AdminController {
 	}
 
 	@GetMapping("/admin")
-	public String index(Model model) {
-
-
-		return "admin/indexAdmin";
-
+	public String index(HttpSession session) {
+		if(session.getAttribute("login")!=null) {
+			if(session.getAttribute("isAdmin")!=null) {
+				return "admin/indexAdmin";
+			}
+			else {
+				return "NotFound";
+			}
+		}
+		return "redirect:/login";
 	}
 	
 	@GetMapping("/admin/createCliente")

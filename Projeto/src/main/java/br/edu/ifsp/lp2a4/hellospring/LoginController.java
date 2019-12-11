@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import javax.servlet.http.HttpSession;
 import br.edu.ifsp.lp2a4.hellospring.entidades.UsuariosRepository;
 import br.edu.ifsp.lp2a4.hellospring.entidades.Usuario;
 
@@ -32,27 +32,22 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login")
-	public String logar(@RequestParam("login") String login, @RequestParam("password") String password, Model model){
+	public String logar(@RequestParam("login") String login, @RequestParam("password") String password, Model model, HttpSession session){
 		
 		Usuario usuario = repository.findByEmailAndPassword(login, password);
-//			if (login == usuario.getEmail() && password == usuario.getPassword()) {
-//				if (usuario.isAdmin()) {
-//					return "redirect:/admin";
-//				}
-//				else
-//					return "redirect:/cliente";
-//			
-//		}
 		try {
 			if (login.compareTo(usuario.getEmail())==0 && password.compareTo(usuario.getPassword())==0) {
 				String sucesso = "Login efetuado";
 				model.addAttribute("Sucesso", sucesso);
 				if (usuario.isAdmin()) {
+					session.setAttribute("login", login);
+					session.setAttribute("isAdmin", usuario.isAdmin());
 					return "redirect:/admin";
 				}
 				else {
-					System.out.println("cliente");
-					return "redirect:/clientes/indexCliente/";
+					session.setAttribute("login", login);
+					session.setAttribute("isAdmin", usuario.isAdmin());
+					return "redirect:/clientes";
 				}
 			}
 		}
